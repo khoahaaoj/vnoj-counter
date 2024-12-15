@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bấm để tăng số lần</title>
+</head>
+<body>
+    <h1 id="countDisplay">Số lần bấm: 0</h1>
+    <button id="counterButton">Bấm vào đây</button>
+
+    <script>
+        // Kiểm tra số lần bấm từ localStorage
+        let count = localStorage.getItem("vnojClickCount") || 0;
+
+        // Hiển thị số lần bấm
+        const countDisplay = document.getElementById("countDisplay");
+        countDisplay.textContent = `Số lần bấm: ${count}`;
+
+        // Nút bấm
+        const counterButton = document.getElementById("counterButton");
+        counterButton.addEventListener("click", () => {
+            count++;
+            localStorage.setItem("vnojClickCount", count); // Lưu vào localStorage
+            countDisplay.textContent = `Số lần bấm: ${count}`;
+        });
+    </script>
+</body>
+</html>
